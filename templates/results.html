@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Results for "{{ query }}"</h2>
+
+        {% if results %}
+            <ul>
+                {% for doc, score in results %}
+                    <li>
+                        <strong>{{ doc }}</strong>
+                        — relevance score: {{ score }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matching documents found.</p>
+        {% endif %}
+
+        <a href="/">Search again</a>
+    </div>
+</body>
+</html>
